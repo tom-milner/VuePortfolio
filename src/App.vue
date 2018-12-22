@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 import NavBar from "@/components/Navigation"
 export default {
   name: 'App',
@@ -17,6 +18,7 @@ export default {
 
 <style lang="scss">
 
+  @import '/scss/global';
 
 *,
 *::after,

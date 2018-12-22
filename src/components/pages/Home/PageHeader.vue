@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "../../../scss/global";
+
 .header {
   position: relative;
   justify-content: center;
@@ -34,7 +37,7 @@ export default {
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 85vh);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85vh);
 
   &__content {
     display: flex;
@@ -42,12 +45,12 @@ export default {
     justify-content: space-between;
     height: 45rem;
     align-items: center;
-    color: #fff;
+    color: $color-white;
     font-family: "Montserrat", sans-serif;
   }
 
   &__text-box {
-    color: #fff;
+    color: $color-white;
     font-family: "Montserrat", sans-serif;
   }
 

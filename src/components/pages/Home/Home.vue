@@ -14,7 +14,8 @@ import Skills from "@/components/pages/Home/Skills"
 export default {
   components: {
     PageHeader,
-    About
+    About,
+    Skills
   }
 };
 </script>

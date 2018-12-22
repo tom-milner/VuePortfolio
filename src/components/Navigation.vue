@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "../scss/global";
+
 .nav {
   z-index: 100;
   position: fixed;
@@ -61,7 +64,7 @@ export default {
   &__link {
     &:link,
     &:visited {
-      color: #ffffff;
+      color: $color-white;
       text-decoration: none;
       text-transform: lowercase;
       text-transform: lowercase;

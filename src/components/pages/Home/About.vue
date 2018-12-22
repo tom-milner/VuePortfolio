@@ -6,10 +6,9 @@
       <br>
       <p>Lorem, ipsum do. Temporibus, repellat libero repellendus ducimus inventore atque quas consequatur, aperiam sed at qui itaque magni consectetur minus alias ad. sit amet consectetur adipisicing elit. Enim impedit illo quis fuga, autem cumque itaque nostrum ipsa mollitia asperiores, aspernatur nemo! Dicta excepturi officia unde illum rerum accusantium odio?</p>
       <br>
-      <p>Lorem, ipsum do! Dicta excepturi officia unde illum rerum accusantium odio?</p>    
+      <p>Lorem, ipsum do! Dicta excepturi officia unde illum rerum accusantium odio?</p>
     </div>
     <round-button message="See my work"></round-button>
-
   </section>
 </template>
 
@@ -34,17 +33,24 @@ export default {
 
   background-color: #efefef;
   padding: 25rem 0;
-  padding-bottom: 100rem;
-  margin-top: -20vh;
+  margin-top: -10vh;
   overflow: hidden;
+    transform: skewY(4.5deg);
+
+    & > * {
+        transform: skewY(-4.5deg);
+    }
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   width: 80%;
   font-size: 1.9rem;
   text-align: center;
   padding: 5rem 0;
-  letter-spacing: .3rem;
-  word-spacing: .5rem;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.5rem;
 }
+
 </style>

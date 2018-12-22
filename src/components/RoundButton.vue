@@ -9,13 +9,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../scss/global';
+
 .btn {
   &:link,
   &:visited {
     font-size: 2rem;
     border-radius: 100rem;
-    color: #fff;
-    background-color: #7da4ad;
+    color: $color-white;
+    background-color: $color-primary;
     padding: 1.5rem 4rem;
     transition: all 0.2s;
     position: relative;
