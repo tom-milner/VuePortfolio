@@ -1,18 +1,20 @@
 <template>
   <section class="section-contact">
-    <!-- <div class="column"> -->
-      <heading-secondary theme="light" message="Contact"></heading-secondary>
-      <div class="section-contact__button-box">
-        <primary-button type="square" message="Email"/>
-        <primary-button type="square" message="Discord"/>
+
+    <heading-secondary theme="light" message="Contact"></heading-secondary>
+    <div class="section-contact__button-box">
+      <primary-button type="square" message="Email"/>
+      <primary-button type="square" message="Discord"/>
+    </div>
+    <div class="section-contact__form">
+      <h3 class="section-contact__text">or leave me a message:</h3>
+      <input class="section-contact__input" type="text" placeholder="name">
+      <input class="section-contact__input" type="text" placeholder="telephone no.">
+      <input class="section-contact__input" type="text" placeholder="email">
+      <textarea class="section-contact__input"   placeholder="message"></textarea>
+      <primary-button type="square" message="Send" ></primary-button>
       </div>
-      <div class="section-contact__form">
-        <input class="section-contact__input" type="text" placeholder="name">
-        <input class="section-contact__input" type="text" placeholder="telephone no.">
-        <input class="section-contact__input" type="text" placeholder="email">
-        <input class="section-contact__input" type="text" placeholder="message">
-      </div>
-    <!-- </div> -->
+
   </section>
 </template>
 
@@ -28,9 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @import "../../../scss/global";
-
 
 .section-contact {
   display: flex;
@@ -41,10 +41,12 @@ export default {
   width: 100%;
   transform: skewY(4.5deg);
 
+    background-color: $color-white;
+
+
   & > * {
     transform: skewY(-4.5deg);
   }
-
 
   &__button-box {
     width: 70%;
@@ -57,15 +59,41 @@ export default {
   &__form {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
+    min-width: 50%;
     justify-content: center;
     align-items: center;
   }
 
   &__input {
+    font-size: $font-default;
     width: 100%;
-    border: 1px solid $color-grey-dark;
-    padding: 1rem;
+    border: 1px solid $color-grey;
+    padding: 0.5rem;
+    border-radius: 3px;
+    margin: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
   }
+
+  &__text {
+    margin: 2rem 0;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    color: $color-primary-very-dark;
+    letter-spacing: 0.3rem;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  textarea {
+
+    min-width: 100%;
+    width: 100%;
+    height: 15rem;
+    resize: vertical;
+  }
+
+
 }
 </style>

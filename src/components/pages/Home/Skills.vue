@@ -44,8 +44,7 @@ export default {
     rgba(#7da4ad, 0.8),
     rgba(#25373b, 0.8)
   ),
-  url("../../../assets/img/skills-bg.jpeg"),
-  url("../../../assets/img/clouds.jpg");
+  url("../../../assets/img/skills-bg.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;

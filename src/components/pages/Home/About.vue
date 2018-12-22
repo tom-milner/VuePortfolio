@@ -34,7 +34,7 @@ export default {
   align-items: center;
   flex-direction: column;
 
-  background-color: #efefef;
+  background-color: $color-grey-light;
   padding: 17rem 0;
   margin-top: -10vh;
   overflow: hidden;
