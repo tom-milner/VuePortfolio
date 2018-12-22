@@ -5,17 +5,17 @@
         <h1 class="header__main">Tom Milner</h1>
         <h2 class="header__subtext">developer</h2>
       </div>
-      <round-button message="Find out more"></round-button>
+      <primary-button type="round"  message="Find out more"></primary-button>
     </div>
   </header>
 </template>
 
 <script>
-import RoundButton from "@/components/RoundButton";
+import PrimaryButton from"@/components/misc/PrimaryButton";
 
 export default {
   components: {
-    RoundButton
+    PrimaryButton
   }
 };
 </script>

@@ -43,7 +43,7 @@ export default {
   position: fixed;
   width: 100%;
   height: 8rem;
-  font-size: 1.9rem;
+  font-size: $font-default;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +69,7 @@ export default {
       text-transform: lowercase;
       text-transform: lowercase;
       transition: all 0.2s;
-      font-size: 1.9rem;
+      font-size: $font-default;
       font-weight: 500;
       letter-spacing: 0.3rem;
     }

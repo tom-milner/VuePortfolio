@@ -3,6 +3,7 @@
     <page-header></page-header>
     <about></about>
     <skills></skills>
+    <contact/>
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import PageHeader from "@/components/pages/Home/PageHeader";
 import About from "@/components/pages/Home/About";
 import Skills from "@/components/pages/Home/Skills"
+import Contact from "@/components/pages/Home/Contact"
 
 export default {
   components: {
     PageHeader,
     About,
-    Skills
+    Skills,
+    Contact
   }
 };
 </script>

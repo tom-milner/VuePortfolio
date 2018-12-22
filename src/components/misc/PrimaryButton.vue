@@ -1,21 +1,20 @@
 <template>
-  <router-link to="#" class="btn">{{message}}</router-link>
+  <router-link to="#" class="btn" :class="type" >{{message}}</router-link>
 </template>
 
 <script>
 export default {
-  props: ["message"]
+  props: ["message", "type"]
 };
 </script>
 
 <style lang="scss" scoped>
-  @import '../scss/global';
+@import "../../scss/global";
 
 .btn {
   &:link,
   &:visited {
     font-size: 2rem;
-    border-radius: 100rem;
     color: $color-white;
     background-color: $color-primary;
     padding: 1.5rem 4rem;
@@ -27,11 +26,11 @@ export default {
   }
 
   &:hover {
-    transform: translateY(-3px);
+    transform: skewY(0) translateY(-3px);
     box-shadow: 0 1rem 2rem rgba(#000, 0.2);
 
     &::after {
-      transform: scaleX(1.4) scaleY(1.6);
+      transform:  skewY(0) scaleX(1.4) scaleY(1.6);
       opacity: 0;
     }
   }
@@ -53,5 +52,16 @@ export default {
     transition: all 0.4s;
     background-color: #7da4ad;
   }
+}
+
+
+.round,
+.round::after {
+    border-radius: 100rem;
+}
+
+.square,
+.square::after {
+  border-radius: 3px;
 }
 </style>
