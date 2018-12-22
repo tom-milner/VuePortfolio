@@ -4,6 +4,10 @@
 
 - Finish home section.
   - Contact Section.
+    - Focus styles on inputs.
+    - Required inputs
+    - spacing
+  - Footer
 - **Remember**!! :
 
   ```scss
