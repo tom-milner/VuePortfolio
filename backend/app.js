@@ -19,9 +19,11 @@ app.post("/contact", function(req,res){
 
   console.log("mailing");
 
-  let mailOpts, smtpTrans;
+  console.log(req.body);
 
-  smtpTrans = nodemailer.createTransport({
+  let mailOpts, transporter;
+
+  transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
