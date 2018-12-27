@@ -1,11 +1,11 @@
 <template>
-  <section class="section-contact">
+  <section class="section-contact" id="section-contact">
     <heading-secondary theme="light" message="Contact"></heading-secondary>
     <div class="section-contact__button-box">
       <primary-button link="mailto:tommilnerdev@gmail.com" type="square" message="Email"/>
       <primary-button link="#" type="square" message="LinkedIn"/>
     </div>
-    <form class="section-contact__form" @submit="processForm" >
+    <form class="section-contact__form" @submit="processForm">
       <h3 class="section-contact__text">or leave me a message:</h3>
       <input
         class="section-contact__input"
@@ -34,6 +34,13 @@
         placeholder="message"
         v-model="message"
       ></textarea>
+
+      <primary-button
+        message="Submit"
+        type="square"
+        link="#section-contact"
+        v-on:click.native="processForm"
+      />
     </form>
   </section>
 </template>
@@ -41,26 +48,36 @@
 <script>
 import HeadingSecondary from "@/components/typography/HeadingSecondary";
 import PrimaryButton from "@/components/misc/PrimaryButton";
+import axios from "axios";
 
 export default {
   data() {
     return {
-    name: "",
-    email: "",
-    tel: "",
-    message: ""
-    }
+      name: "",
+      email: "",
+      tel: "",
+      message: ""
+    };
   },
   components: {
     HeadingSecondary,
-    PrimaryButton,
-    SubmitButton 
+    PrimaryButton
   },
   methods: {
-    processForm: function(event){
-      alert("k");
+     processForm:  function(event) {
+      // make post request to server
+
+      var data = {
+        name: this.$data.name,
+        email: this.$data.email,
+        tel: this.$data.tel,
+        message: this.$data.message
+      };
+      console.log(data);
+
+       axios.post("http://localhost:8081/api/contact", data);
     }
-  },
+  }
 };
 </script>
 
@@ -109,11 +126,12 @@ export default {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     transition: all 0.2s;
+    outline: none;
 
     &:focus,
     &:active {
       outline: none;
-      border: 0.5px solid $color-primary-dark;
+      border: 1px solid $color-primary-dark;
       box-shadow: 0 0.2rem 1rem rgba(#000, 0.2);
     }
   }
@@ -133,7 +151,7 @@ export default {
     width: 100%;
     height: 15rem;
     resize: vertical;
-    // margin-bottom: 3rem;
+    margin-bottom: 3rem;
   }
 }
 </style>

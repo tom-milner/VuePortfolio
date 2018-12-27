@@ -1,12 +1,13 @@
 <template>
-  <section class="section-about">
+  <section class="section-about" id="section-about">
     <heading-secondary theme="light" message="About Me"></heading-secondary>
     <div class="content">
-      <p>Lorem, ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, optio consequatur. Temporibus, repellat libero repellendus ducimus inventore atque quas consequatur, aperiam sed at qui itaque magni consectetur minus alias ad. sit amet consectetur adipisicing elit. Enim impedit illo quis fuga, autem cumque itaque nostrum ipsa mollitia asperiores, aspernatur nemo! Dicta excepturi officia unde illum rerum accusantium odio?</p>
+      <p>Hi. I'm Tom, a developer based in Guildford, UK.
+</p>
       <br>
-      <p>Lorem, ipsum do. Temporibus, repellat libero repellendus ducimus inventore atque quas consequatur, aperiam sed at qui itaque magni consectetur minus alias ad. sit amet consectetur adipisicing elit. Enim impedit illo quis fuga, autem cumque itaque nostrum ipsa mollitia asperiores, aspernatur nemo! Dicta excepturi officia unde illum rerum accusantium odio?</p>
+      <p>I make websites and apps, and have experience with modern web development technologies (Vue, Node.JS etc) aswell as backend technologies like Java, which I have used to build scientific desktop applications in the past.</p>
       <br>
-      <p>Lorem, ipsum do! Dicta excepturi officia unde illum rerum accusantium odio?</p>
+      <p>I enjoy learning and keeping up with new languages and software development trends, and I love to build all kinds of software, so contact me below!</p>
     </div>
     <primary-button type="round" id="unSkew" message="See my work"></primary-button>
   </section>

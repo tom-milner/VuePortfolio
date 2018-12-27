@@ -8,17 +8,16 @@
 
 <script>
 export default {
-
   props: {
     card: {
-      img : String,
-      skill : String,
-      text : String
+      img: String,
+      skill: String,
+      text: String
     }
   },
-  methods :{
-    getImage : function(pic){
-      var images = require.context('@/assets/img/',false,/\.svg$/);
+  methods: {
+    getImage: function(pic) {
+      var images = require.context("@/assets/img/", false, /\.svg$/);
       console.log(images("./" + pic + ".svg"));
       return images("./" + pic + ".svg");
     }
@@ -43,6 +42,10 @@ export default {
   transition: all 0.2s;
   text-align: center;
 
+  @include respond(tab-port) {
+    margin: 2rem 0; 
+  }
+
   &__image {
     height: 15rem;
     width: 15rem;
@@ -53,13 +56,9 @@ export default {
   &__heading {
     text-transform: uppercase;
     color: $color-primary-very-dark;
-    letter-spacing: .3rem;
+    letter-spacing: 0.3rem;
     font-size: 2rem;
     font-weight: 500;
-  }
-
-  &__text {
-
   }
 
   &:hover {

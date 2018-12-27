@@ -5,7 +5,7 @@
         <h1 class="header__main">Tom Milner</h1>
         <h2 class="header__subtext">developer</h2>
       </div>
-      <primary-button type="round"  message="Find out more"></primary-button>
+      <primary-button type="round" link="#section-about" message="Find out more"></primary-button>
     </div>
   </header>
 </template>
