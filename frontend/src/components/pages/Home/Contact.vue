@@ -1,31 +1,66 @@
 <template>
   <section class="section-contact">
-
     <heading-secondary theme="light" message="Contact"></heading-secondary>
     <div class="section-contact__button-box">
-      <primary-button type="square" message="Email"/>
-      <primary-button type="square" message="Discord"/>
+      <primary-button link="mailto:tommilnerdev@gmail.com" type="square" message="Email"/>
+      <primary-button link="#" type="square" message="LinkedIn"/>
     </div>
-    <div class="section-contact__form">
+    <form class="section-contact__form" @submit="processForm" >
       <h3 class="section-contact__text">or leave me a message:</h3>
-      <input class="section-contact__input" type="text" placeholder="name">
-      <input class="section-contact__input" type="tel" placeholder="telephone no.">
-      <input class="section-contact__input" type="email" placeholder="email">
-      <textarea class="section-contact__input"   placeholder="message"></textarea>
-      <primary-button type="square" message="Send" ></primary-button>
-      </div>
-
+      <input
+        class="section-contact__input"
+        name="name"
+        type="name"
+        placeholder="name"
+        v-model="name"
+      >
+      <input
+        class="section-contact__input"
+        name="tel"
+        type="tel"
+        placeholder="telephone no."
+        v-model="tel"
+      >
+      <input
+        class="section-contact__input"
+        name="email"
+        type="email"
+        placeholder="email"
+        v-model="email"
+      >
+      <textarea
+        class="section-contact__input"
+        name="message"
+        placeholder="message"
+        v-model="message"
+      ></textarea>
+    </form>
   </section>
 </template>
 
 <script>
 import HeadingSecondary from "@/components/typography/HeadingSecondary";
 import PrimaryButton from "@/components/misc/PrimaryButton";
+
 export default {
+  data() {
+    return {
+    name: "",
+    email: "",
+    tel: "",
+    message: ""
+    }
+  },
   components: {
     HeadingSecondary,
-    PrimaryButton
-  }
+    PrimaryButton,
+    SubmitButton 
+  },
+  methods: {
+    processForm: function(event){
+      alert("k");
+    }
+  },
 };
 </script>
 
@@ -41,8 +76,7 @@ export default {
   width: 100%;
   transform: skewY(4.5deg);
 
-    background-color: $color-white;
-
+  background-color: $color-white;
 
   & > * {
     transform: skewY(-4.5deg);
@@ -74,6 +108,14 @@ export default {
     margin: 0.5rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
+    transition: all 0.2s;
+
+    &:focus,
+    &:active {
+      outline: none;
+      border: 0.5px solid $color-primary-dark;
+      box-shadow: 0 0.2rem 1rem rgba(#000, 0.2);
+    }
   }
 
   &__text {
@@ -87,13 +129,11 @@ export default {
   }
 
   textarea {
-
     min-width: 100%;
     width: 100%;
     height: 15rem;
     resize: vertical;
+    // margin-bottom: 3rem;
   }
-
-
 }
 </style>
