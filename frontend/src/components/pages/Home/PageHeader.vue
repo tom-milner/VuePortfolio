@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import PrimaryButton from"@/components/misc/PrimaryButton";
+import PrimaryButton from "@/components/misc/PrimaryButton";
 
 export default {
   components: {
@@ -21,7 +21,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @import "../../../scss/global";
 
 .header {
@@ -29,6 +28,7 @@ export default {
   justify-content: center;
   text-align: center;
   height: 100vh;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,16 +37,31 @@ export default {
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85vh);
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85vh);
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 45rem;
+    width: 100%;
     align-items: center;
     color: $color-white;
     font-family: "Montserrat", sans-serif;
+
+    @include respond(header-multiline) {
+      height: 70rem;
+    }
+
+    @include respond(phone) {
+      height: 50rem;
+    }
+
+    // & > * {
+    //   @include respond(header-multiline) {
+    //     margin-bottom: 10rem;
+    //   }
+    // }
   }
 
   &__text-box {
@@ -59,12 +74,25 @@ export default {
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 2rem;
+
+    @include respond(phone) {
+      font-size: 10rem;
+      text-transform: uppercase;
+      font-weight: 100;
+      letter-spacing: 1rem;
+    }
   }
 
   &__subtext {
     font-size: 6rem;
     font-weight: 300;
     letter-spacing: 2.5rem;
+
+    @include respond(phone) {
+      font-size: 4rem;
+      font-weight: 300;
+      letter-spacing: 2.5rem;
+    }
   }
 }
 </style>

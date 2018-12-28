@@ -24,10 +24,6 @@ app.use("/api", router);
 router.get("/status", function(req,res){
   res.json({"status": "UP"});
 });
-
-router.post("/test", function(req,res){
-  res.send("Test");
-})
  
 // Email post route
 router.post("/contact", function(req,res){

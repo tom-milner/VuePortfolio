@@ -2,8 +2,19 @@
   <section class="section-contact" id="section-contact">
     <heading-secondary theme="light" message="Contact"></heading-secondary>
     <div class="section-contact__button-box">
-      <primary-button link="mailto:tommilnerdev@gmail.com" type="square" message="Email"/>
-      <primary-button link="#" type="square" message="LinkedIn"/>
+      <primary-button
+        id="res_button"
+        link="mailto:tommilnerdev@gmail.com"
+        type="square"
+        message="Email"
+      />
+      <primary-button
+        id="res_button"
+        link="https://github.com/tom-milner?"
+        type="square"
+        message="GitHub"
+      />
+      <primary-button id="res_button" link="#" type="square" message="LinkedIn"/>
     </div>
     <form class="section-contact__form" @submit="processForm">
       <h3 class="section-contact__text">or leave me a message:</h3>
@@ -64,7 +75,7 @@ export default {
     PrimaryButton
   },
   methods: {
-     processForm:  function(event) {
+    processForm: function(event) {
       // make post request to server
 
       var data = {
@@ -75,7 +86,7 @@ export default {
       };
       console.log(data);
 
-       axios.post("http://localhost:8081/api/contact", data);
+      axios.post("https://tomfmilner.com/api/contact", data);
     }
   }
 };
@@ -104,7 +115,15 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     margin-top: 5rem;
+    text-align: center;
+
+    @include respond(phone) {
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   &__form {
@@ -114,6 +133,12 @@ export default {
     min-width: 50%;
     justify-content: center;
     align-items: center;
+
+    @include respond(phone) {
+      min-width: 90%;
+      width: 90%;
+
+    }
   }
 
   &__input {
@@ -152,6 +177,13 @@ export default {
     height: 15rem;
     resize: vertical;
     margin-bottom: 3rem;
+  }
+}
+
+#res_button {
+  @include respond(phone) {
+    width: 60%;
+    margin: 1rem;
   }
 }
 </style>

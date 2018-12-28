@@ -53,8 +53,13 @@ export default {
   font-size: $font-default;
   text-align: center;
   padding: 5rem 0;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2rem;
   word-spacing: 0.5rem;
+
+  @include respond(tab-port){
+    width: 90%;
+  }
+
 }
 
 
