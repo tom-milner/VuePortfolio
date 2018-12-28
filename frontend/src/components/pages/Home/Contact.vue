@@ -46,6 +46,8 @@
         v-model="message"
       ></textarea>
 
+      <h3 class="section-contact__text">{{error}}</h3>
+
       <primary-button
         message="Submit"
         type="square"
@@ -59,7 +61,7 @@
 <script>
 import HeadingSecondary from "@/components/typography/HeadingSecondary";
 import PrimaryButton from "@/components/misc/PrimaryButton";
-import axios from "axios";
+import ContactService from "@/services/ContactService"
 
 export default {
   data() {
@@ -67,7 +69,8 @@ export default {
       name: "",
       email: "",
       tel: "",
-      message: ""
+      message: "",
+      error: null
     };
   },
   components: {
@@ -75,18 +78,20 @@ export default {
     PrimaryButton
   },
   methods: {
-    processForm: function(event) {
+    async processForm() {
       // make post request to server
-
-      var data = {
+      try {
+      const response = await ContactService.contact({
         name: this.$data.name,
         email: this.$data.email,
         tel: this.$data.tel,
         message: this.$data.message
-      };
-      console.log(data);
-
-      axios.post("https://tomfmilner.com/api/contact", data);
+      });
+      console.log(response);
+      } catch(error) {
+        this.error = error.response.data.error;
+        console.log(this.error);
+      }
     }
   }
 };
@@ -137,7 +142,6 @@ export default {
     @include respond(phone) {
       min-width: 90%;
       width: 90%;
-
     }
   }
 
