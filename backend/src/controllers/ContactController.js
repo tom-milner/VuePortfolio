@@ -24,18 +24,18 @@ module.exports = {
       text: ` Name: ${req.body.name} \n Sender:  ${req.body.email} \n Telephone: ${req.body.tel} \n \n Message: \n ${req.body.message} \n \n Time: \n ${now}`,
       replyTo: `${req.body.email}`
     }
-    // console.log(req.body.name);
-    await console.log(mailOptions);
 
-    // await transporter.sendMail(mailOptions, function (err, res) {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("res: " + res);
-    //     console.log("sent");
-    //   }
-    // })
-    res.send(mailOptions)
+    await transporter.sendMail(mailOptions, function (err, res) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("res: " + res);
+        console.log("sent");
+      }
+    })
+    res.send({
+      error: "Message Sent."
+    })
 
   }
 }

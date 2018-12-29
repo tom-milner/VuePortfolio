@@ -46,7 +46,7 @@
         v-model="message"
       ></textarea>
 
-      <h3 class="section-contact__text">{{error}}</h3>
+      <h3 class="section-contact__text error">{{error}}</h3>
 
       <primary-button
         message="Submit"
@@ -88,6 +88,7 @@ export default {
         message: this.$data.message
       });
       console.log(response);
+      this.error = response.data.error;
       } catch(error) {
         this.error = error.response.data.error;
         console.log(this.error);
@@ -173,7 +174,10 @@ export default {
     letter-spacing: 0.3rem;
     font-size: 2rem;
     font-weight: 500;
+
+
   }
+
 
   textarea {
     min-width: 100%;
@@ -190,4 +194,9 @@ export default {
     margin: 1rem;
   }
 }
+
+    .error {
+      color: $color-error;
+      text-align: center;
+    }
 </style>
