@@ -25,15 +25,15 @@ module.exports = {
       replyTo: `${req.body.email}`
     }
 
-    await transporter.sendMail(mailOptions, function (err, res) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("res: " + res);
-        console.log("sent");
-      }
-    })
-    res.send({
+    // await transporter.sendMail(mailOptions, function (err, res) {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log("res: " + res);
+    //     console.log("sent");
+    //   }
+    // })
+    await res.send({
       error: "Message Sent."
     })
 
