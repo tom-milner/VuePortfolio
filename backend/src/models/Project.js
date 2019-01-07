@@ -5,7 +5,8 @@ let projectSchema = new Schema({
   name: {type: String, required: true, max: 100},
   imageURL: {type: String, required: true, max: 200},
   link: {type: String, required:false, max:200},
-  description: {type: String, required:true, max:500}
+  description: {type: String, required:true, max:500},
+  thumbnailURL: {type: String, required: true}
 })
 
 

@@ -3,10 +3,10 @@
     <img class="nav__logo" src="../assets/img/logo.svg">
     <div class="nav__menu-box">
       <li>
-        <a class="nav__link" href="/">Home</a>
+        <router-link class="nav__link" to="/">Home</router-link>
       </li>
       <li>
-        <a class="nav__link" href="#">Work</a>
+        <router-link class="nav__link" to="work">Work</router-link>
       </li>
     </div>
   </nav>

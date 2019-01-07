@@ -9,7 +9,7 @@
       <br>
       <p>I enjoy learning and keeping up with new languages and software development trends, and I love to build all kinds of software, so contact me below!</p>
     </div>
-    <primary-button type="round" id="unSkew" message="See my work"></primary-button>
+    <primary-button type="round" id="unSkew" message="See my work" link="work" ></primary-button>
   </section>
 </template>
 
