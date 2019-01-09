@@ -1,11 +1,20 @@
 <template>
   <section class="section-work">
-    <heading-secondary class="section-work__title" message="My work" theme="light"/>
+    <heading-secondary class="section-work__title" message="My work" theme="dark"/>
     <div class="section-work__row">
-      <project-card :name="this.projects[0].name" :thumbnail="this.projects[0].thumbnailURL" index=0></project-card>
-      <!-- <project-card name="test" thumbnail="InDevelopmentPage" index=0></project-card> -->
+      <project-card
+        :name="this.projects[0].name"
+        :thumbnail="this.projects[0].thumbnailURL"
+        :index="0"
+      ></project-card>
+      <project-card
+        :name="this.projects[1].name"
+        :thumbnail="this.projects[1].thumbnailURL"
+        :index="1"
+      ></project-card>
     </div>
-    <div class="section-work__row"></div>
+    <!-- <project-card name="test" thumbnail="InDevelopmentPage" index=0></project-card> -->
+    <!-- <div class="section-work__row"></div> -->
     <popup></popup>
   </section>
 </template>
@@ -33,7 +42,7 @@ export default {
         .get(url)
         .then(response => {
           this.projects = response.data;
-          console.log(this.projects)
+          console.log(this.projects);
         })
         .catch(err => err);
     }
@@ -52,10 +61,11 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: $color-grey-light;
-  height: 85vh;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-  padding: 2rem;
+  background-color: $color-grey-dark;
+  height: auto;
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  padding: 5rem;
+  padding-bottom: 100rem;
 
   &__title {
     margin-top: 3rem;
@@ -67,11 +77,17 @@ export default {
     justify-content: space-around;
     align-items: space-between;
     width: 100%;
+    height: 100%;
+    // &:not(:first){
+    //   padding: 300rem;
+    // }
+
 
     @include respond(tab-port) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: auto;
     }
   }
 }

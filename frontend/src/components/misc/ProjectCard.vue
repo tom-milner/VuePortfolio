@@ -26,6 +26,19 @@ export default {
 @import "../../scss/_global.scss";
 
 .project-card {
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+
+
+  @include respond(tab-port){
+    width: 45rem;
+    height: 30rem;
+  }
+
+  transition: all .2s;  
   height: 35rem;
   width: 50rem;
   background-color: $color-white;
@@ -48,6 +61,11 @@ export default {
     width: 45rem;
     // padding: s.5rem;
     border-radius: 3px;
+
+    @include respond(tab-port){
+      height: 20rem;
+      width: 40rem;
+    }
   }
 
   &__text {
@@ -58,6 +76,7 @@ export default {
     letter-spacing: 0.3rem;
     font-size: 2rem;
     font-weight: 500;
+    text-align: center;
   }
 }
 </style>
