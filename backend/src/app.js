@@ -1,9 +1,8 @@
+require("dotenv").load()
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-require("dotenv").load()
-const config = require("./config/config");
 
 // setup app
 const app = express();
@@ -11,11 +10,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-console.log(config)
-
 // connnect database
-let mongoDB = config.db.url;
-mongoose.connect(mongoDB);
+
+var dbOptions = {
+  user: process.env.DB_USER,
+  pass: process.env.DB_PASS,
+  useMongoClient = true
+}
+
+
+let mongoURL = process.env.DB_URL;
+mongoose.connect(mongoURL, dbOptions);
 mongoose.Promise = global.Promise;
 let db = mongoose.connections;
 db.concat("error", console.error.bind(console, "MongoDB Connection Error"))
@@ -24,7 +29,7 @@ db.concat("error", console.error.bind(console, "MongoDB Connection Error"))
 require("./routes")(app);
 
 // *******************************************************************************************
-app.listen(config.port, function(){
-  console.log(`listening on port ${config.port}`)
+app.listen(process.env.PORT, function(){
+  console.log(`listening on port ${process.env.PORT}`)
 
 });

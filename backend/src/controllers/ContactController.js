@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const moment = require("moment")
-const config = require('../config/config')
+require("dotenv").load()
 
 
 module.exports = {
@@ -11,8 +11,8 @@ module.exports = {
       port: 465,
       secure: true,
       auth: {
-        user: config.nodemailer.user,
-        pass: config.nodemailer.pass
+        user: process.env.GMAIL_USER,
+        pass: process.env.PASS
       }
     });
     let now = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
