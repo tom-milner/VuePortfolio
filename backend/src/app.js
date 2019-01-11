@@ -1,4 +1,3 @@
-require("dotenv").load()
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -9,13 +8,13 @@ const app = express();
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
+require("dotenv").load()
 
 // connnect database
 
 var dbOptions = {
   user: process.env.DB_USER,
   pass: process.env.DB_PASS,
-  useMongoClient : true
 }
 
 
