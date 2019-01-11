@@ -17,7 +17,7 @@
       <primary-button id="res_button" link="#" type="square" message="LinkedIn"/>
     </div>
     <form class="section-contact__form" @submit="processForm">
-      <h3 class="section-contact__text">or leave me a message:</h3>
+      <h3 class="heading-tertiary">or leave me a message:</h3>
       <input
         class="section-contact__input"
         name="name"
@@ -46,7 +46,7 @@
         v-model="message"
       ></textarea>
 
-      <h3 class="section-contact__text error">{{error}}</h3>
+      <h3 class="heading-tertiary heading-tertiary--error">{{error}}</h3>
 
       <primary-button
         message="Submit"
@@ -61,7 +61,7 @@
 <script>
 import HeadingSecondary from "@/components/typography/HeadingSecondary";
 import PrimaryButton from "@/components/misc/PrimaryButton";
-import ContactService from "@/services/ContactService"
+import ContactService from "@/services/ContactService";
 
 export default {
   data() {
@@ -81,15 +81,15 @@ export default {
     async processForm() {
       // make post request to server
       try {
-      const response = await ContactService.contact({
-        name: this.$data.name,
-        email: this.$data.email,
-        tel: this.$data.tel,
-        message: this.$data.message
-      });
-      console.log(response);
-      this.error = response.data.error;
-      } catch(error) {
+        const response = await ContactService.contact({
+          name: this.$data.name,
+          email: this.$data.email,
+          tel: this.$data.tel,
+          message: this.$data.message
+        });
+        console.log(response);
+        this.error = response.data.error;
+      } catch (error) {
         this.error = error.response.data.error;
         console.log(this.error);
       }
@@ -166,19 +166,6 @@ export default {
     }
   }
 
-  &__text {
-    margin: 2rem 0;
-    padding-top: 1rem;
-    text-transform: uppercase;
-    color: $color-primary-very-dark;
-    letter-spacing: 0.3rem;
-    font-size: 2rem;
-    font-weight: 500;
-
-
-  }
-
-
   textarea {
     min-width: 100%;
     width: 100%;
@@ -194,9 +181,4 @@ export default {
     margin: 1rem;
   }
 }
-
-    .error {
-      color: $color-error;
-      text-align: center;
-    }
 </style>

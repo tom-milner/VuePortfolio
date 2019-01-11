@@ -1,17 +1,17 @@
 <template>
   <div class="project-card">
-    <img :src="getImage(thumbnail)" class="project-card__image">
-    <h3 class="project-card__text">{{name}}</h3>
+    <v-lazy-image :src="getImage(project.thumbnailURL)" class="project-card__image"/>
+    <h3 class="heading-tertiary heading-tertiary--white">{{project.name}}</h3>
   </div>
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 export default {
-  props: {
-    thumbnail: String,
-    name: String,
-    index: String
+  components: {
+    VLazyImage
   },
+  props: ["project"],
   methods: {
     getImage: function(pic) {
       var images = require.context("@/assets/img/thumbnails", false, /\.png$/);
@@ -25,20 +25,26 @@ export default {
 <style lang="scss" scoped >
 @import "../../scss/_global.scss";
 
-.project-card {
+.v-lazy-image {
+  transition: all 0.1s;
+  opacity: 0;
+}
+.v-lazy-image-loaded {
+  opacity: 1;
+}
 
+.project-card {
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.02);
+    cursor: pointer; 
   }
 
-
-
-  @include respond(tab-port){
-    width: 45rem;
+  @include respond(tab-port) {
+    width: auto;
     height: 30rem;
   }
 
-  transition: all .2s;  
+  transition: all 0.2s;
   height: 35rem;
   width: 50rem;
   background-color: $color-white;
@@ -62,7 +68,7 @@ export default {
     // padding: s.5rem;
     border-radius: 3px;
 
-    @include respond(tab-port){
+    @include respond(tab-port) {
       height: 20rem;
       width: 40rem;
     }

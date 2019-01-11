@@ -1,8 +1,8 @@
 <template>
   <div class="skill-box">
     <img class="skill-box__image" :src="getImage(card.img)">
-    <h3 class="skill-box__heading">{{card.skill}}</h3>
-    <p class="skill-box__text">{{card.text}}</p>
+    <h3 class="heading-tertiary">{{card.skill}}</h3>
+    <p class="paragraph paragraph--small">{{card.text}}</p>
   </div>
 </template>
 
@@ -29,7 +29,6 @@ export default {
 @import "../../scss/global";
 .skill-box {
   background-color: rgba(#cdcdcd, 0.95);
-  font-size: 1.6rem;
   padding: 4rem 2.5rem;
   width: 30rem;
   height: 40rem;
@@ -51,14 +50,6 @@ export default {
     width: 15rem;
     fill: $color-white;
     color: $color-white;
-  }
-
-  &__heading {
-    text-transform: uppercase;
-    color: $color-primary-very-dark;
-    letter-spacing: 0.3rem;
-    font-size: 2rem;
-    font-weight: 500;
   }
 
   &:hover {

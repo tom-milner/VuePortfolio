@@ -3,19 +3,20 @@
     <heading-secondary class="section-work__title" message="My work" theme="dark"/>
     <div class="section-work__row">
       <project-card
-        :name="this.projects[0].name"
-        :thumbnail="this.projects[0].thumbnailURL"
-        :index="0"
+        v-on:click.native="togglePopup(project)"
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
       ></project-card>
-      <project-card
-        :name="this.projects[1].name"
-        :thumbnail="this.projects[1].thumbnailURL"
-        :index="1"
-      ></project-card>
+
+      <h3
+        v-if="projects.length == 0"
+        class="heading-tertiary heading-tertiary--error"
+      >Uh oh! Looks like a server error.</h3>
     </div>
-    <!-- <project-card name="test" thumbnail="InDevelopmentPage" index=0></project-card> -->
-    <!-- <div class="section-work__row"></div> -->
-    <popup></popup>
+    <transition name="fade">
+      <popup v-if="popupIsDisplayed" :project="clickedProject" v-on:close-popup="closePopup()"></popup>
+    </transition>
   </section>
 </template>
 
@@ -27,28 +28,39 @@ import axios from "axios";
 export default {
   data() {
     return {
-      projects: []
+      projects: [],
+      popupIsDisplayed: false,
+      clickedProject: {}
     };
   },
+
+  methods: {
+    togglePopup: function(project) {
+      // console.log(project);
+      this.$data.clickedProject = project;
+      this.$data.popupIsDisplayed = true;
+    },
+    closePopup: function() {
+      this.$data.popupIsDisplayed = false;
+      console.log(this.$data.popupIsDisplayed);
+    }
+  },
+
   components: {
     HeadingSecondary,
     ProjectCard,
     Popup
   },
-  methods: {
-    getProjects: function() {
-      const url = "http://localhost:8081/work/";
-      axios
-        .get(url)
-        .then(response => {
-          this.projects = response.data;
-          console.log(this.projects);
-        })
-        .catch(err => err);
-    }
-  },
-  mounted() {
-    this.getProjects();
+
+  beforeCreate: function() {
+    const url = "http://localhost:8081/work/";
+    axios
+      .get(url)
+      .then(response => {
+        this.projects = response.data;
+        console.log(this.projects);
+      })
+      .catch(err => err);
   }
 };
 </script>
@@ -56,17 +68,23 @@ export default {
 <style lang="scss" scoped >
 @import "../../../scss/global";
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 .section-work {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   background-color: $color-grey-dark;
-  height: auto;
+  min-height: 100vh;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
   padding: 5rem;
-  padding-bottom: 100rem;
-
   &__title {
     margin-top: 3rem;
   }
@@ -81,7 +99,6 @@ export default {
     // &:not(:first){
     //   padding: 300rem;
     // }
-
 
     @include respond(tab-port) {
       flex-direction: column;
