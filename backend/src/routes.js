@@ -16,9 +16,6 @@ module.exports = (app) => {
 
   // Work Page
 
-  app.post("/work/create",
-    WorkController.createProject
-  )
 
   app.get("/work",
     WorkController.getProjects)
