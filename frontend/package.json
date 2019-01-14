@@ -9,7 +9,8 @@
     "build": "node build/build.js",
     "dist": "sudo cp -a dist/. /var/www/tomfmilner.com/html/",
     "restart": "sudo systemctl restart nginx",
-    "do-it-all" : "npm run build; npm run dist; npm run restart"
+    "do-it-all" : "npm run build; npm run dist; npm run restart",
+    "get-latest": "git pull; npm run do-it-all"
   },
   "dependencies": {
     "@sentry/browser": "^4.5.1",
