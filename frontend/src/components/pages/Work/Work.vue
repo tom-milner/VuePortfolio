@@ -24,7 +24,8 @@
 import HeadingSecondary from "@/components/typography/HeadingSecondary";
 import ProjectCard from "@/components/misc/ProjectCard";
 import Popup from "@/components/misc/Popup";
-import axios from "axios";
+import WorkService from "@/services/WorkService";
+
 export default {
   data() {
     return {
@@ -52,17 +53,10 @@ export default {
     Popup
   },
 
-  beforeCreate: function() {
-    const url = "http://localhost:8081/work/";
-    axios
-      .get(url)
-      .then(response => {
-        this.projects = response.data;
-        console.log(this.projects);
-      })
-      .catch(err => err);
+  async beforeCreate()  {
+    this.projects = (await WorkService.work()).data;
   }
-};
+}
 </script>
 
 <style lang="scss" scoped >
