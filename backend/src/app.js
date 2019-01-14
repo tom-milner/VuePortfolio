@@ -2,13 +2,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const Sentry = require('@sentry/node');
+
 
 // setup app
 const app = express();
+Sentry.init({ dsn: 'https://4d97397ddd124f9fbbe8cc3914ff14c7@sentry.io/1371315' });
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 require("dotenv").load()
+app.use(Sentry.Handlers.errorHandler());
+
 
 // connnect database
 
