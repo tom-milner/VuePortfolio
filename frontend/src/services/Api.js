@@ -1,7 +1,9 @@
 import axios from "axios";
+import dotenv from 'dotenv'
+dotenv.config()
 export default () => {
 
   return axios.create({
-    baseURL:"https://tomfmilner.com/api"
+    baseURL: process.env.API_URL
   })
 }

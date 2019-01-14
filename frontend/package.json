@@ -9,7 +9,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@sentry/browser": "^4.5.1",
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "save": "^2.3.3",

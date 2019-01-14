@@ -4,6 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import * as Sentry from '@sentry/browser'
+
+Sentry.init({
+  dsn: 'https://4b3ad81cf5ff4c02a8dffa5cc30e5dbb@sentry.io/1371393',
+  integrations: [new Sentry.Integrations.Vue({ Vue })]
+})
 
 Vue.config.productionTip = false
 
