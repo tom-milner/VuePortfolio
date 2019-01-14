@@ -14,7 +14,7 @@ import NavBar from "@/components/Navigation";
 export default {
   name: "App",
   components: {
-    NavBar
+    NavBargfgfdg
   }
 };
 </script>
