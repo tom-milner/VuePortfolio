@@ -6,7 +6,7 @@
       </div>
       <div class="popup__project-details">
         <h3 class="heading-tertiary heading-tertiary--popup-title">{{project.name}}</h3>
-        <a :href="project.link" class="site-link">{{project.link}}</a>
+        <a v-if="project.link != null" :href="project.link" class="site-link">{{project.link}}</a>
         <p class="paragraph paragraph--small" v-html="project.description"></p>
       </div>
     </div>
@@ -28,8 +28,8 @@ export default {
       return images("./" + pic + ".png");
     },
 
-    close: function(){
-      console.log("close")
+    close: function() {
+      console.log("close");
       return this.$emit("close-popup");
     }
   }

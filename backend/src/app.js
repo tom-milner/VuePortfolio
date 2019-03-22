@@ -7,13 +7,18 @@ const Sentry = require('@sentry/node');
 
 // setup app
 const app = express();
-Sentry.init({ dsn: 'https://4d97397ddd124f9fbbe8cc3914ff14c7@sentry.io/1371315' });
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({extended: true}));
+Sentry.init({
+  dsn: 'https://4d97397ddd124f9fbbe8cc3914ff14c7@sentry.io/1371315'
+});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(cors());
 require("dotenv").load()
 app.use(Sentry.Handlers.errorHandler());
 
+console.log(process.env.DB_URL)
 
 // connnect database
 
@@ -33,7 +38,7 @@ db.concat("error", console.error.bind(console, "MongoDB Connection Error"))
 require("./routes")(app);
 
 // *******************************************************************************************
-app.listen(process.env.PORT, function(){
+app.listen(process.env.PORT, function () {
   console.log(`listening on port ${process.env.PORT}`)
 
 });

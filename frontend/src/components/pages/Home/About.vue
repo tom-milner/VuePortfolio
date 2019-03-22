@@ -1,10 +1,11 @@
 <template>
   <section class="section-about" id="section-about">
     <heading-secondary theme="light" message="About Me"></heading-secondary>
-    <div class="paragraph paragraph--large ">
+    <div class="paragraph paragraph--large">
       <p>Hi. I'm Tom, a developer based in Guildford, UK.</p>
       <br>
-      <p>I make websites and apps, and have experience with modern web development technologies (Vue, Node.JS etc) aswell as backend technologies like Java, which I have used to build scientific desktop applications in the past.</p>
+      <p>I make websites and apps, and have experience with modern web development technologies (Vue, Node.JS etc) aswell as backend technologies like Java</p>
+      <p>I have also used app development frameworks like Flutter to build sleek mobile apps.</p>
       <br>
       <p>I enjoy learning and keeping up with new languages and software development trends, and I love to build all kinds of software, so contact me below!</p>
     </div>
